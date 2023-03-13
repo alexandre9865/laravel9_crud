@@ -15,8 +15,7 @@ return new class extends Migration
     {
         if(!Schema::hasTable('report_profiles')){
             Schema::create('report_profiles', function (Blueprint $table) {
-                $table->integer('id_report_profiles')->unsigned();
-                $table->primary('id_report_profiles');
+                $table->integer('id_report_profiles')->unsigned()->autoIncrement();
                 $table->integer('id_profile')->unsigned();
                 $table->integer('id_report')->unsigned();
                 $table->foreign('id_profile')->references('id_profile')->on('profile')->onDelete('cascade')->onUpdate('cascade');		

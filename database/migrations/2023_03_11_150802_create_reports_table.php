@@ -15,8 +15,7 @@ return new class extends Migration
     {
         if(!Schema::hasTable('report')){
             Schema::create('report', function (Blueprint $table) {
-                $table->integer('id_report')->unsigned();
-                $table->primary('id_report');
+                $table->integer('id_report')->unsigned()->autoIncrement();
                 $table->string('title',200);
                 $table->text('description');
             });

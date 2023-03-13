@@ -10,8 +10,7 @@ return new class extends Migration
     {
         if(!Schema::hasTable('profile')){
             Schema::create('profile', function (Blueprint $table) {
-                $table->integer('id_profile')->unsigned();
-                $table->primary('id_profile');
+                $table->integer('id_profile')->unsigned()->autoIncrement();
                 $table->string('first_name',65);
                 $table->string('last_name',65);
                 $table->date('dbo');

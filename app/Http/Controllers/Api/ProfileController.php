@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Resources\ProfileResource;
-use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -17,7 +16,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profiles = Profile::all();
+        $profiles = Profile::orderBy('first_name','asc')->orderBy('last_name','asc')->get();
         return ProfileResource::collection($profiles);
     }
 

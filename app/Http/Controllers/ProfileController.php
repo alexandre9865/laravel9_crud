@@ -16,6 +16,9 @@ class ProfileController extends Controller
     public function index()
     {
         $profiles = $this->internalRequest('/api/profiles', 'GET')->data;
+        foreach($profiles as &$profile){
+            $profile->gender_name = $this->getGenderName($profile->gender);
+        }
         return view('profile.index', compact('profiles'));
     }
     
@@ -90,5 +93,23 @@ class ProfileController extends Controller
     {
         //TODO
         // return redirect()->route('profile.index')->with('success','Profile has been deleted successfully');
+    }
+
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  Int  $gender
+    * @return String
+    */ 
+    public function getGenderName($gender)
+    {
+        switch ($gender) {
+            case '0':
+                return 'Male';
+            case '1':
+                return 'Female';
+            case '2':
+                return 'Other';
+        }
     }
 }

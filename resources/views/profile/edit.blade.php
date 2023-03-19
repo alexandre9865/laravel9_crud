@@ -46,7 +46,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Date Of Birth:</strong>
-                <input type="date" name="dbo" value="{{ $profile->dbo }}" class="form-control"
+                <input type="text" name="dbo" id="dbo" value="{{ $profile->dbo }}" class="form-control"
                     placeholder="Date Of Birth">
                 @error('dbo')
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -69,4 +69,7 @@
         <button type="submit" class="btn btn-primary ml-3">Submit</button>
     </div>
 </form>
+@endsection
+@section('custom_js')
+<script src="{{ mix('js/profile.js')}}"></script>
 @endsection

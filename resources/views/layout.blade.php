@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <script src="{{ mix('js/app.js')}}"></script>
 
     </head>
     <body>
@@ -15,5 +16,5 @@
         </section>
     
     </body>
-    <script src="{{ mix('js/app.js')}}"></script>
+    @yield('custom_js')
 </html>

@@ -3,11 +3,12 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
+        <br>
+        <div class="float-left">
             <h2>Profile list</h2>
         </div>
-        <div class="pull-right mb-2">
-            {{-- <a class="btn btn-success" href="{{ route('profile.create') }}"> Create Profile</a>  TODO --}}
+        <div class="float-right mb-2">
+            <a class="btn btn-success" href="{{ route('profiles.create') }}"> Create Profile</a>
         </div>
     </div>
 </div>
@@ -16,6 +17,7 @@
         <p>{{ $message }}</p>
     </div>
 @endif
+<br>
 <table class="table table-bordered">
     <thead>
         <tr>

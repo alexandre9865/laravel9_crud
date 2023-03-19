@@ -16,4 +16,9 @@ class Profile extends Model
     protected $casts = ['dbo'  => 'datetime:d/m/Y'];
     protected $primaryKey = 'id_profile';
     public $timestamps = false;
+
+    public function reports()
+    {
+        return $this->belongsToMany(Report::class, 'report_profiles', 'id_profile', 'id_report');
+    }
 }

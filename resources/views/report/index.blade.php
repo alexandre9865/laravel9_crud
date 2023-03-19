@@ -1,15 +1,15 @@
 @extends('layout')
 
-@section('title', 'Profile List')
+@section('title', 'Report List')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <br>
         <div class="float-left">
-            <h2>Profile List</h2>
+            <h2>Report List</h2>
         </div>
         <div class="float-right mb-2">
-            <a class="btn btn-success" href="{{ route('profiles.create') }}"> Create Profile</a>
+            <a class="btn btn-success" href="{{ route('reports.create') }}"> Create Report</a>
         </div>
     </div>
 </div>
@@ -27,30 +27,31 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Date Of Birth</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Profiles Associated</th>
             <th width="230px">Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($profiles as $profile)
+        @foreach ($reports as $report)
             <tr>
-                <td>{{ $profile->first_name }}</td>
-                <td>{{ $profile->last_name }}</td>
-                <td>{{ $profile->gender_name }}</td>
-                <td>{{ $profile->dbo }}</td>
+                <td>{{ $report->title }}</td>
+                <td>{{ $report->description }}</td>
+                <td>{{ $report->profile }}</td>
                 <td>
-                    <form action="{{ route('profiles.destroy',$profile->id_profile) }}" method="Post">
-                        <a class="btn btn-primary" href="{{ route('profiles.edit',$profile->id_profile) }}">Edit</a>
+                    <form action="{{ route('reports.destroy',$report->id_report) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('reports.edit',$report->id_report) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
-            @endforeach
+        @endforeach
     </tbody>
 </table>
+@endsection
+@section('custom_js')
+<script src="{{ mix('js/report.js')}}"></script>
 @endsection

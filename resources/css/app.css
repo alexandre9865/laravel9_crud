@@ -1,5 +1,6 @@
 @import 'bootstrap.min.css';
 @import 'header.css';
+@import '~jquery-ui/themes/base/all.css';
 * {
     margin: 0;
     padding: 0;

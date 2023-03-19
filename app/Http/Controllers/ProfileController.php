@@ -92,8 +92,11 @@ class ProfileController extends Controller
     */
     public function destroy(Profile $profile)
     {
-        //TODO
-        // return redirect()->route('profile.index')->with('success','Profile has been deleted successfully');
+        $profilesRequest = $this->internalRequest('/api/profiles/'.$profile->id_profile, 'DELETE');
+        if(isset($profilesRequest->errors)){
+            return redirect()->route('profiles.index')->with('error','The specified Profile could not be deleted. Try again later.');
+        }
+        return redirect()->route('profiles.index')->with('success','Profile has been deleted successfully');
     }
 
     /**

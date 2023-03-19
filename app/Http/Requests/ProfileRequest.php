@@ -54,9 +54,9 @@ class ProfileRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'first_name.required'   => 'The first name field is required as you can see.',
+            'first_name.required'   => 'The first name field is required.',
             'first_name.max'        => 'The first name field cannot be greater than 65 characters.',
-            'last_name.required'    => 'The last name field is required as you can see.',
+            'last_name.required'    => 'The last name field is required.',
             'last_name.max'         => 'The last name field cannot be greater than 65 characters.',
             'dbo.required'          => 'The date of birth field is required.',
             'dbo.before_or_equal'   => 'The date of birth cannot be greater than the current date.',

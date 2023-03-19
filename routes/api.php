@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('profiles', ProfileController::class);
+Route::apiResource('reports', ReportController::class);
 

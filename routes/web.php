@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('profiles', '\App\Http\Controllers\ProfileController');
+Route::resource('reports', '\App\Http\Controllers\ReportController');
 

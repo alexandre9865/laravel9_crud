@@ -29,8 +29,7 @@ class ProfileController extends Controller
     */
     public function create()
     {
-        //TODO
-        // return view('profile.create');
+        return view('profile.create');
     }
 
     /**
@@ -41,11 +40,11 @@ class ProfileController extends Controller
     */
     public function store(Request $request)
     {
-        //TODO
-        // $profiles = $this->internalRequest('/api/profiles', 'POST', $request->post());
-        // Profile::create($request->post());
-
-        return redirect()->route('profile.index')->with('success','Profile has been created successfully.');
+        $profilesRequest = $this->internalRequest('/api/profiles', 'POST', $request->post());
+        if(isset($profilesRequest->errors)){
+            return redirect()->back()->withErrors($profilesRequest->errors);
+        }
+        return redirect()->route('profiles.index')->with('success','Profile has been created successfully.');
     }
 
     /**

@@ -100,7 +100,7 @@ class ProfileController extends Controller
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Return the gender name based on its integer value.
     *
     * @param  Int  $gender
     * @return String

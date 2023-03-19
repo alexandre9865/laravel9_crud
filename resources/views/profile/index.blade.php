@@ -1,11 +1,12 @@
 @extends('layout')
 
+@section('title', 'Profile List')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <br>
         <div class="float-left">
-            <h2>Profile list</h2>
+            <h2>Profile List</h2>
         </div>
         <div class="float-right mb-2">
             <a class="btn btn-success" href="{{ route('profiles.create') }}"> Create Profile</a>

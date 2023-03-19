@@ -65,8 +65,7 @@ class ProfileController extends Controller
     */
     public function edit(Profile $profile)
     {
-        //TODO
-        // return view('profile.edit',compact('profile'));
+        return view('profile.edit',compact('profile'));
     }
 
     /**
@@ -78,8 +77,11 @@ class ProfileController extends Controller
     */
     public function update(Request $request, Profile $profile)
     {
-        //TODO
-        // return redirect()->route('profile.index')->with('success','Profile Has Been updated successfully');
+        $profilesRequest = $this->internalRequest('/api/profiles/'.$profile->id_profile, 'PUT', $request->post());
+        if(isset($profilesRequest->errors)){
+            return redirect()->back()->withErrors($profilesRequest->errors);
+        }
+        return redirect()->route('profiles.index')->with('success','Profile has been updated successfully');
     }
 
     /**

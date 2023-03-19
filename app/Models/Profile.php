@@ -14,6 +14,6 @@ class Profile extends Model
     protected $fillable = ['id_profile', 'first_name', 'last_name', 'dbo', 'gender'];
     protected $dates = ['dbo'];
     protected $casts = ['dbo'  => 'datetime:d/m/Y'];
-
+    protected $primaryKey = 'id_profile';
     public $timestamps = false;
 }

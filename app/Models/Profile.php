@@ -12,6 +12,8 @@ class Profile extends Model
 
     protected $table = 'profile';
     protected $fillable = ['id_profile', 'first_name', 'last_name', 'dbo', 'gender'];
+    protected $appends = ['gender_name'];
+
     protected $dates = ['dbo'];
     protected $casts = ['dbo'  => 'datetime:d/m/Y'];
     protected $primaryKey = 'id_profile';
@@ -21,4 +23,17 @@ class Profile extends Model
     {
         return $this->belongsToMany(Report::class, 'report_profiles', 'id_profile', 'id_report');
     }
+
+    public function getGenderNameAttribute()
+    {
+        switch ($this->gender) {
+            case '0':
+                return 'Male';
+            case '1':
+                return 'Female';
+            case '2':
+                return 'Other';
+        }
+    }
+
 }

@@ -90,7 +90,9 @@ class ReportController extends Controller
         if(isset($reportsRequest->errors)){
             return redirect()->back()->withErrors($reportsRequest->errors);
         }
-        return redirect()->route('reports.index')->with('success','Report has been updated successfully');
+        $email = new EmailController();
+        $email->sendEmail($reportsRequest->data->id_report);
+        return redirect()->route('reports.index')->with('success','Report has been updated successfully and sent to email');
     }
 
     /**

@@ -3,6 +3,10 @@ var __webpack_exports__ = {};
 /*!********************************************!*\
   !*** ./resources/views/profile/profile.js ***!
   \********************************************/
-$("#dbo").datepicker();
+$(document).ready(function () {
+  $("#dbo").datepicker({
+    buttonImageOnly: true
+  });
+});
 /******/ })()
 ;

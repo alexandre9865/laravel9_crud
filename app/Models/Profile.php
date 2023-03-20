@@ -15,7 +15,7 @@ class Profile extends Model
     protected $appends = ['gender_name'];
 
     protected $dates = ['dbo'];
-    protected $casts = ['dbo'  => 'datetime:d/m/Y'];
+    protected $casts = ['dbo'  => 'datetime:m/d/Y'];
     protected $primaryKey = 'id_profile';
     public $timestamps = false;
 

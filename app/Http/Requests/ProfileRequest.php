@@ -29,7 +29,7 @@ class ProfileRequest extends FormRequest
         return [
             'first_name'    => ['required', 'max:65'],
             'last_name'     => ['required', 'max:65'],
-            'dbo'           => ['required', 'before_or_equal:'.Date('Y-m-d')],
+            'dbo'           => ['required', 'before_or_equal:'.Date('Y-m-d'), 'date_format:m/d/Y'],
             'gender'        => ['required', 'integer', 'between:0,2']
         ];
     }
@@ -60,6 +60,7 @@ class ProfileRequest extends FormRequest
             'last_name.max'         => 'The last name field cannot be greater than 65 characters.',
             'dbo.required'          => 'The date of birth field is required.',
             'dbo.before_or_equal'   => 'The date of birth cannot be greater than the current date.',
+            'dbo.date_format'       => 'The date of birth is not formatted in the correct format (mm/dd/yyyy).',
             'gender.required'       => 'The gender field is required.',
             'gender.between'        => 'Valid values for gender: 0 (Male), 1 (Female), 2 (Other).',
             'gender.integer'        => 'The gender field accepts only integer numbers.',

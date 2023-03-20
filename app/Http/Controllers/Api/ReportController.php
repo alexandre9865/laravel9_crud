@@ -52,6 +52,8 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
+        $report = Report::with('profiles')->orderBy('title','asc')->find($report->id_report);
+        return new ReportResource($report);
         // 
     }
 

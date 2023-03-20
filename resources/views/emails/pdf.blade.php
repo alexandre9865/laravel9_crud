@@ -139,7 +139,6 @@
                     Date Of Birth
                 </li>
             </ul>
-            {{dd($report->profiles)}}
             @foreach($report->profiles as $profile)
             <ul class="pdf-row">
                 <li class="column-offset">&nbsp;</li>

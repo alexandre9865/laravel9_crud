@@ -77,7 +77,9 @@ class ReportController extends Controller
      */
     public function update(ReportRequest $request, Report $report)
     {
-        $report->update($request->all());
+        $validated = $request->validated();
+        $report->update($validated);
+        $report->profiles()->sync($validated['profiles']);
         return new ReportResource($report);
     }
 

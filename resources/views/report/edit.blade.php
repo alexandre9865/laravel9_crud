@@ -46,19 +46,33 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Add Profiles:</strong>
-                {{-- TODO - put data to profiles be selected--}}
                 <div class="row">
-                <div class="col-xs-10 col-sm-10 col-md-10">
-                    <select name="profiles" class="form-control">
-                        <option value="0" selected>Select</option>
-                        @foreach ($profiles as $profile)
-                            <option value="{{$profile->id_profile}}">{{ $profile->first_name .' '. $profile->last_name }}</option>
+                    <div class="col-xs-10 col-sm-10 col-md-10">
+                        <select id="profiles-select" name="profiles" class="form-control">
+                            <option value="0" selected>Select</option>
+                            @foreach ($profiles as $profile)
+                                <option value="{{$profile->id_profile}}">{{ $profile->first_name .' '. $profile->last_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                        <button id="add-profile" type="button" class="btn btn-success float-right">Add Profile</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <table id="profiles-table" class="table">
+                        @foreach($report->profiles as $profileInserted)
+                        <tr id="profile-{{$profileInserted->id_profile}}">
+                            <td>
+                                {{ $profileInserted->first_name .' '. $profileInserted->last_name }}
+                                <input type="hidden" name="profiles[]" value="{{$profileInserted->id_profile}}">
+                            </td>
+                            <td>
+                                <button type="button" data-id="{{$profileInserted->id_profile}}" class="delete-profile btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
                         @endforeach
-                    </select>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2">
-                    <button type="button" class="btn btn-success float-right" onclick=""> Add Profile</button>
-                </div>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -29,6 +29,7 @@ class ReportRequest extends FormRequest
         return [
             'title'         => ['required'],
             'description'   => ['required'],
+            'profiles'      => [''],
         ];
     }
 

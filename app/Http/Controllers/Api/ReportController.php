@@ -40,7 +40,7 @@ class ReportController extends Controller
     {
         $validated = $request->validated();
         $reports = Report::create($validated);
-    
+        $reports->profiles()->sync($validated['profiles']);
         return new ReportResource($reports);
     }
 

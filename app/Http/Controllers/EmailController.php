@@ -9,12 +9,11 @@ use PDF;
 
 class EmailController extends Controller
 {
-    public function sendEmail(Request $request)
+    public function sendEmail($idReport)
     {
-        $id = $request->report;
-        Mail::send(['text'=>'emails.message'], ['request' => $request], function($message) use($id){
+        Mail::send(['text'=>'emails.message'], [], function($message) use($idReport){
             
-            $report = $this->internalRequest('/api/reports/'.$id, 'GET')->data;
+            $report = $this->internalRequest('/api/reports/'.$idReport, 'GET')->data;
             
             $pdf = PDF::loadView('emails.pdf',compact('report'));
 
